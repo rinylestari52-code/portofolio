@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO On-Page Utama -->
+    <title>Manajemen Pengguna Campus Admin - Dashboard Kelola Akun Terpadu</title>
+    <meta name="description" content="Sistem aplikasi manajemen pengguna terintegrasi untuk Campus Admin. Kelola data akun mahasiswa, dosen, dan administrator secara praktis, responsif, dan aman.">
+    <meta name="keywords" content="manajemen pengguna, campus admin, kelola akun kampus, dashboard admin bootstrap, sistem informasi akademik, manajemen mahasiswa, manajemen dosen">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Campus Admin Team">
+    <link rel="canonical" href="https://example.com/manajemen-pengguna">
+
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manajemen Pengguna Campus Admin - Dashboard Kelola Akun Terpadu">
+    <meta property="og:description" content="Kelola akses peran pengguna kampus (Mahasiswa, Dosen, Administrator) dengan sistem visual berbasis Bootstrap yang interaktif dan responsif.">
+    <meta property="og:url" content="https://example.com/manajemen-pengguna">
+    <meta property="og:site_name" content="Campus Admin">
+    <meta property="og:image" content="https://example.com/assets/img/og-image-dashboard.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manajemen Pengguna Campus Admin - Dashboard Kelola Akun">
+    <meta name="twitter:description" content="Dashboard interaktif manajemen data user kampus terintegrasi.">
+    <meta name="twitter:image" content="https://example.com/assets/img/og-image-dashboard.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sistem Manajemen Pengguna Campus Admin",
+      "url": "https://example.com/manajemen-pengguna",
+      "description": "Aplikasi berbasis web untuk mengelola hak akses akun, data dosen, mahasiswa, dan administrator di lingkungan kampus.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 compatible browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .table-container {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .status-badge {
+            width: 85px;
+        }
+        /* Fokus Aksesibilitas */
+        a:focus, button:focus, input:focus, select:focus {
+            outline: 2px solid #0d6efd;
+            outline-offset: 2px;
+        }
+        /* Skema Warna Footer */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" aria-label="Navigasi Utama Aplikasi">
+            <div class="container">
+                <a class="navbar-brand" href="#" title="Halaman Utama Campus Admin">
+                    <i class="bi bi-shield-lock-fill me-2" aria-hidden="true"></i>CAMPUS ADMIN
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigasi">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Lihat Laporan Pengguna">Laporan</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                <li><a class="dropdown-item" href="#" title="Pengaturan Profil">Profil</a></li>
+                                <li><a class="dropdown-item" href="#" title="Pengaturan Sistem">Pengaturan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" title="Keluar dari Sistem">Keluar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- Notifikasi / Alert Info Sistem -->
+        <section aria-label="Notifikasi Informasi Sistem">
+            <div class="alert alert-info alert-dismissible fade show border-0 shadow-sm" role="alert">
+                <strong><i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>Info Sistem:</strong> Pemeliharaan server dijadwalkan pada hari Sabtu pukul 22:00 WIB.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup notifikasi"></button>
+            </div>
+        </section>
+
+        <!-- Bagian Judul Utama Halaman (Dioptimalkan menggunakan tag H1 untuk SEO) -->
+        <section class="d-flex justify-content-between align-items-center mb-4" aria-labelledby="main-heading">
+            <div>
+                <!-- Menggunakan tag h1 yang diformat dengan kelas bootstrap agar ukurannya tetap proporsional -->
+                <h1 id="main-heading" class="h3 fw-bold mb-0">Manajemen Pengguna</h1>
+                <p class="text-muted mb-0">Kelola hak akses akun, data profil, dan peran civitas akademika kampus</p>
+            </div>
+            <button class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addUserModal" title="Tambah data pengguna baru">
+                <i class="bi bi-plus-lg me-2" aria-hidden="true"></i>Tambah Pengguna
+            </button>
+        </section>
+
+        <section class="card border-0 shadow-sm table-container mb-5" aria-label="Tabel Data Pengguna">
+            <div class="card-header bg-white py-3 border-0">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0" id="search-icon-addon"><i class="bi bi-search" aria-hidden="true"></i></span>
+                            <input type="text" id="searchInput" class="form-control bg-light border-0" placeholder="Cari nama atau email..." aria-label="Cari nama atau email pengguna" aria-describedby="search-icon-addon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body p-0">
+                <!-- Tabel Pengguna Semantik -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0" id="userTable">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">Pengguna</th>
+                                <th scope="col" class="py-3">Peran</th>
+                                <th scope="col" class="py-3">Status</th>
+                                <th scope="col" class="py-3 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Data dinamis akan dimuat oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bagian Footer Tabel & Navigasi Halaman -->
+            <div class="card-footer bg-white py-3 border-0">
+                <div class="d-flex justify-content-between align-items-center flex-column flex-sm-row gap-3">
+                    <small class="text-muted" id="entriesCount" aria-live="polite">Menampilkan 0 dari 0 entri</small>
+                    <nav aria-label="Navigasi halaman data pengguna">
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Halaman sebelumnya" tabindex="-1">Sebelumnya</a>
+                            </li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Halaman selanjutnya">Selanjutnya</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-4 mt-auto">
+        <div class="container text-center">
+            <p class="text-muted mb-0 small">&copy; 2026 Campus Admin. Seluruh Hak Cipta Dilindungi.</p>
+            <p class="text-muted mb-0 xx-small" style="font-size: 0.75rem;">Optimized with Semantic HTML & Structured SEO Schema.</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="modalTitle">Tambah Pengguna Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup form"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label for="inputNama" class="form-label small fw-bold">Nama Lengkap</label>
+                            <input type="text" id="inputNama" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label small fw-bold">Alamat Email</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="name@campus.edu" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selectPeran" class="form-label small fw-bold">Peran</label>
+                            <select id="selectPeran" class="form-select text-muted" aria-label="Pilih peran pengguna">
+                                <option selected disabled>Pilih peran...</option>
+                                <option>Mahasiswa</option>
+                                <option>Dosen</option>
+                                <option>Administrator</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary px-4" title="Klik untuk menyimpan data pengguna baru">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Data Mock Pengguna Kampus
+        const users = [
+            { id: 1, name: 'Alex Rivera', email: 'alex.rivera@campus.edu', role: 'Mahasiswa', status: 'Aktif' },
+            { id: 2, name: 'Sarah Jenkins', email: 's.jenkins@faculty.edu', role: 'Dosen', status: 'Cuti' },
+            { id: 3, name: 'Michael Chen', email: 'm.chen@admin.edu', role: 'Administrator', status: 'Aktif' },
+            { id: 4, name: 'Emily Watson', email: 'e.watson@faculty.edu', role: 'Dosen', status: 'Aktif' },
+            { id: 5, name: 'David Miller', email: 'd.miller@campus.edu', role: 'Mahasiswa', status: 'Nonaktif' }
+        ];
+
+        // Rendering data tabel secara dinamis dengan atribut aksesibilitas
+        function renderTable(filter = '') {
+            const tbody = document.getElementById('tableBody');
+            const filtered = users.filter(u => 
+                u.name.toLowerCase().includes(filter.toLowerCase()) || 
+                u.email.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            tbody.innerHTML = '';
+            filtered.forEach(user => {
+                let statusClass = 'bg-success';
+                if(user.status === 'Cuti') statusClass = 'bg-warning text-dark';
+                if(user.status === 'Nonaktif') statusClass = 'bg-secondary';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="px-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;" aria-hidden="true">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark">${user.name}</div>
+                                    <div class="small text-muted">${user.email}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="text-muted"><i class="bi bi-briefcase me-2" aria-hidden="true"></i>${user.role}</span>
+                        </td>
+                        <td>
+                            <span class="badge ${statusClass} status-badge p-2 rounded-pill">${user.status}</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group shadow-sm" role="group" aria-label="Aksi data pengguna">
+                                <button class="btn btn-sm btn-outline-light text-dark border-secondary-subtle" title="Edit data ${user.name}" aria-label="Edit data ${user.name}">
+                                    <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-light text-danger border-secondary-subtle" title="Hapus data ${user.name}" aria-label="Hapus data ${user.name}">
+                                    <i class="bi bi-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById('entriesCount').textContent = `Menampilkan ${filtered.length} dari ${users.length} entri`;
+        }
+
+        // Listener input pencarian data
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderTable(e.target.value);
+        });
+
+        // Memuat tabel pertama kali saat halaman siap
+        window.onload = () => renderTable();
+    </script>
+</body>
+</html>
