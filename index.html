@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio | Riny Lestari</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -29,7 +30,7 @@
       position:fixed;
       width:500px;
       height:500px;
-      background:rgba(255,192,203,0.3);
+      background:rgba(255,192,203,0.35);
       border-radius:50%;
       top:-200px;
       right:-100px;
@@ -42,7 +43,7 @@
       position:fixed;
       width:400px;
       height:400px;
-      background:rgba(216,191,255,0.3);
+      background:rgba(216,191,255,0.35);
       border-radius:50%;
       bottom:-150px;
       left:-100px;
@@ -59,15 +60,23 @@
       position:fixed;
       top:0;
       z-index:1000;
-      background:rgba(255,255,255,0.35);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.3);
+      background:rgba(255,255,255,0.4);
+      backdrop-filter:blur(15px);
+      border-bottom:1px solid rgba(255,255,255,0.4);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 15px 10%;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 10px 30px rgba(180, 120, 170, 0.08);
     }
 
     nav h2{
       font-family:'Playfair Display',serif;
       color:#c05b96;
       font-size:28px;
+      letter-spacing: 0.5px;
     }
 
     nav ul{
@@ -81,6 +90,22 @@
       color:#6b546b;
       font-weight:500;
       transition:0.3s;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #d16ba5;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     nav ul li a:hover{
@@ -92,7 +117,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:120px 10% 60px;
+      padding:140px 10% 60px;
     }
 
     .hero{
@@ -105,14 +130,16 @@
     }
 
     .hero-text{
-      flex:1;
+      flex:1.2;
       min-width:300px;
     }
 
     .hero-text span{
       color:#d16ba5;
       font-weight:600;
-      letter-spacing:1px;
+      letter-spacing:2px;
+      font-size: 14px;
+      text-transform: uppercase;
     }
 
     .hero-text h1{
@@ -126,42 +153,55 @@
     .hero-text p{
       line-height:1.9;
       color:#5d5060;
-      margin-bottom:30px;
-      max-width:600px;
+      margin-bottom:35px;
+      max-width:620px;
+      font-size: 16px;
     }
 
     .btn{
       display:inline-block;
-      padding:15px 35px;
+      padding:16px 38px;
       border-radius:50px;
       text-decoration:none;
       color:white;
       background:linear-gradient(135deg,#ff8dc7,#c58cff);
       font-weight:600;
-      box-shadow:0 10px 25px rgba(197,140,255,0.3);
+      box-shadow:0 10px 25px rgba(197,140,255,0.4);
       transition:0.3s;
     }
 
     .btn:hover{
       transform:translateY(-5px);
+      box-shadow:0 15px 30px rgba(197,140,255,0.6);
     }
 
     .hero-card{
-      width:340px;
-      padding:35px;
+      flex: 0.8;
+      min-width: 320px;
+      max-width: 380px;
+      padding:35px 25px;
       border-radius:30px;
-      background:rgba(255,255,255,0.45);
-      backdrop-filter:blur(15px);
-      box-shadow:0 15px 40px rgba(180,120,170,0.2);
-      border:1px solid rgba(255,255,255,0.4);
+      background:rgba(255,255,255,0.5);
+      backdrop-filter:blur(20px);
+      box-shadow:0 20px 50px rgba(180,120,170,0.15);
+      border:1px solid rgba(255,255,255,0.5);
       text-align:center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-5px);
+      box-shadow:0 25px 55px rgba(180,120,170,0.22);
     }
 
     .profile{
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      margin:auto;
+      width:170px;
+      height:210px;
+      border-radius:24px;
+      margin:0 auto 25px;
+      border:4px solid white;
+      box-shadow:0 10px 30px rgba(180,120,170,0.2);
+      overflow:hidden;
       background:linear-gradient(135deg,#ffb7d5,#d7b8ff);
       display:flex;
       justify-content:center;
@@ -169,22 +209,86 @@
       font-size:52px;
       color:white;
       font-weight:bold;
-      margin-bottom:25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .profile::after {
+      content: "🔍 Tap to Zoom";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(180, 120, 170, 0.8);
+      color: white;
+      font-size: 11px;
+      padding: 6px 0;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .profile:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .profile:hover {
+      transform: scale(1.04);
+      box-shadow:0 12px 35px rgba(180,120,170,0.3);
+    }
+
+    .profile img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 25%;
+      transition: transform 0.5s ease;
+    }
+
+    .profile:hover img {
+      transform: scale(1.08);
     }
 
     .hero-card h3{
       color:#b14f8c;
-      margin-bottom:10px;
-      font-size:30px;
+      margin-bottom:15px;
+      font-size:28px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-card-details {
+      background: rgba(255, 255, 255, 0.4);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .hero-card p{
       margin:8px 0;
       color:#5f5461;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(180, 120, 170, 0.15);
+      padding-bottom: 6px;
+    }
+
+    .hero-card p:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .hero-card p span {
+      font-weight: 600;
+      color: #7c446c;
     }
 
     section{
-      padding:90px 10%;
+      padding:100px 10%;
     }
 
     .title{
@@ -196,11 +300,12 @@
       font-size:42px;
       color:#b14f8c;
       font-family:'Playfair Display',serif;
-      margin-bottom:10px;
+      margin-bottom:15px;
     }
 
     .title p{
       color:#756876;
+      font-size: 16px;
     }
 
     .grid{
@@ -212,25 +317,31 @@
     .card{
       background:rgba(255,255,255,0.5);
       backdrop-filter:blur(12px);
-      padding:30px;
+      padding:35px 30px;
       border-radius:25px;
-      box-shadow:0 10px 25px rgba(180,120,170,0.12);
-      transition:0.3s;
+      box-shadow:0 10px 25px rgba(180,120,170,0.1);
+      transition:0.3s ease;
       border:1px solid rgba(255,255,255,0.4);
     }
 
     .card:hover{
       transform:translateY(-8px);
+      box-shadow:0 15px 35px rgba(180,120,170,0.18);
     }
 
     .card h3{
       color:#c05b96;
       margin-bottom:15px;
+      font-size: 20px;
+      border-bottom: 2px solid rgba(209, 107, 165, 0.15);
+      padding-bottom: 10px;
+      display: inline-block;
     }
 
     .card p{
       line-height:1.8;
       color:#5f5361;
+      font-size: 15px;
     }
 
     .skills{
@@ -239,38 +350,146 @@
       justify-content:center;
       gap:15px;
       margin-top:30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .skill{
-      padding:12px 24px;
+      padding:12px 26px;
       border-radius:40px;
       background:linear-gradient(135deg,#ffc1da,#cfadff);
       color:white;
       font-weight:500;
-      box-shadow:0 5px 15px rgba(180,120,170,0.2);
+      box-shadow:0 5px 15px rgba(180,120,170,0.15);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(180,120,170,0.25);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(43, 31, 48, 0.85);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+      border: 4px solid white;
+      transform: scale(0.85);
+      transition: transform 0.3s ease;
+      object-fit: contain;
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close-modal:hover {
+      color: #ffb7d5;
+      transform: scale(1.1);
     }
 
     .contact{
       text-align:center;
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.45);
+      padding: 40px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow:0 15px 35px rgba(180,120,170,0.08);
     }
 
     .contact p{
-      margin:12px 0;
+      margin:18px 0;
       color:#5e5260;
-      font-size:17px;
+      font-size:18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .contact a {
+      color: #b14f8c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #d16ba5;
     }
 
     footer{
-      padding:30px;
+      padding:40px;
       text-align:center;
-      background:rgba(255,255,255,0.4);
+      background:rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
       color:#6c5c6c;
       margin-top:50px;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      font-size: 14px;
+    }
+
+    @media(max-width:992px) {
+      .hero {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 40px;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin: 0 auto 30px;
+      }
+      
+      .hero-card {
+        width: 100%;
+        max-width: 400px;
+      }
     }
 
     @media(max-width:768px){
-
       nav{
+        padding: 15px 5%;
         flex-direction:column;
         gap:15px;
       }
@@ -281,31 +500,20 @@
         justify-content:center;
       }
 
-      .hero{
-        flex-direction:column-reverse;
-        text-align:center;
-      }
-
       .hero-text h1{
-        font-size:48px;
+        font-size:44px;
       }
 
-      .hero-text p{
-        margin:auto auto 30px;
-      }
-
-      .hero-card{
-        width:100%;
-        max-width:350px;
+      section {
+        padding: 80px 5%;
       }
     }
-
   </style>
 </head>
 
 <body>
 
-  <nav>
+  <nav id="navbar">
     <h2>Riny.</h2>
 
     <ul>
@@ -321,47 +529,46 @@
 
       <div class="hero-text">
         <span>PORTFOLIO WEBSITE</span>
-
         <h1>Riny Lestari</h1>
-
         <p>
           Saya adalah seorang mahasiswa yang memiliki ketertarikan besar dalam dunia kreativitas, komunikasi, dan pengembangan diri. 
           Saya senang mempelajari hal baru, bekerja dalam tim, serta mengembangkan kemampuan yang dapat membantu saya bertumbuh menjadi pribadi yang profesional, kreatif, dan inspiratif.
         </p>
-
         <a href="#about" class="btn">Explore More</a>
       </div>
 
       <div class="hero-card">
-
-        <div class="profile">
-          RL
+        <!-- Bingkai Foto Profil dengan file WhatsApp Image -->
+        <div class="profile" id="profileContainer" onclick="openPhotoModal()">
+          <img 
+            src="WhatsApp Image 2026-06-16 at 12.14.53.jpeg" 
+            alt="Foto Profil Riny Lestari" 
+            onerror="this.style.display='none'; document.getElementById('profileContainer').innerText='RL';"
+          />
         </div>
 
         <h3>Riny Lestari</h3>
 
-        <p><b>Jenis Kelamin:</b> Perempuan</p>
-        <p><b>Pekerjaan:</b> Mahasiswa</p>
-        <p><b>Usia:</b> 21 Tahun</p>
-        <p><b>Domisili:</b> Jakarta, Indonesia</p>
-
+        <div class="hero-card-details">
+          <p>Jenis Kelamin: <span>Perempuan</span></p>
+          <p>Pekerjaan: <span>Mahasiswa</span></p>
+          <p>Usia: <span>21 Tahun</span></p>
+          <p>Domisili: <span>Jakarta, Indonesia</span></p>
+        </div>
       </div>
 
     </div>
   </header>
 
   <section id="about">
-
     <div class="title">
       <h2>Tentang Saya</h2>
       <p>Mengenal lebih dekat tentang diri saya</p>
     </div>
 
     <div class="grid">
-
       <div class="card">
         <h3>Kepribadian</h3>
-
         <p>
           Saya merupakan pribadi yang disiplin, ramah, bertanggung jawab, serta memiliki kemampuan komunikasi yang baik dalam lingkungan akademik maupun sosial.
         </p>
@@ -369,7 +576,6 @@
 
       <div class="card">
         <h3>Minat</h3>
-
         <p>
           Saya tertarik pada bidang desain digital, public speaking, media sosial, pengembangan konten kreatif, dan branding personal.
         </p>
@@ -377,28 +583,22 @@
 
       <div class="card">
         <h3>Tujuan</h3>
-
         <p>
           Saya ingin menjadi perempuan muda yang sukses dan mampu memberikan inspirasi melalui kreativitas, pendidikan, dan pengembangan diri.
         </p>
       </div>
-
     </div>
-
   </section>
 
   <section id="experience">
-
     <div class="title">
       <h2>Pengalaman Kerja</h2>
       <p>Pengalaman kerja dan organisasi (fiktif)</p>
     </div>
 
     <div class="grid">
-
       <div class="card">
         <h3>Social Media Intern</h3>
-
         <p>
           <b>Glow Beauty Agency</b> | 2024
           <br><br>
@@ -408,7 +608,6 @@
 
       <div class="card">
         <h3>Event Organizer Staff</h3>
-
         <p>
           <b>Campus Inspiration Festival</b> | 2023
           <br><br>
@@ -418,30 +617,24 @@
 
       <div class="card">
         <h3>Freelance Content Creator</h3>
-
         <p>
           <b>Independent Project</b> | 2022 - Sekarang
           <br><br>
           Membuat konten kreatif bertema edukasi dan lifestyle dengan desain visual estetik dan modern.
         </p>
       </div>
-
     </div>
-
   </section>
 
   <section id="achievement">
-
     <div class="title">
       <h2>Pencapaian & Karir</h2>
       <p>Pencapaian dan perjalanan karir (fiktif)</p>
     </div>
 
     <div class="grid">
-
       <div class="card">
         <h3>Best Creative Student 2025</h3>
-
         <p>
           Mendapat penghargaan mahasiswa kreatif terbaik tingkat fakultas atas kontribusi dalam media digital dan organisasi kampus.
         </p>
@@ -449,7 +642,6 @@
 
       <div class="card">
         <h3>Juara 1 Desain Poster Nasional</h3>
-
         <p>
           Berhasil memenangkan kompetisi desain poster nasional dengan tema “Perempuan Kreatif di Era Digital”.
         </p>
@@ -457,25 +649,20 @@
 
       <div class="card">
         <h3>Speaker Seminar Mahasiswa</h3>
-
         <p>
           Menjadi pembicara seminar mengenai personal branding dan pengembangan kreativitas generasi muda.
         </p>
       </div>
-
     </div>
-
   </section>
 
   <section>
-
     <div class="title">
       <h2>My Skills</h2>
       <p>Kemampuan yang saya miliki</p>
     </div>
 
     <div class="skills">
-
       <div class="skill">Public Speaking</div>
       <div class="skill">Canva Design</div>
       <div class="skill">Leadership</div>
@@ -484,32 +671,70 @@
       <div class="skill">Content Creator</div>
       <div class="skill">Social Media</div>
       <div class="skill">Team Work</div>
-
     </div>
-
   </section>
 
   <section id="contact">
-
     <div class="title">
       <h2>Kontak</h2>
       <p>Hubungi saya melalui informasi berikut</p>
     </div>
 
     <div class="contact">
-
-      <p>📧 Email : rinylestari@gmail.com</p>
-      <p>📱 WhatsApp : +62 812-3456-7890</p>
-      <p>📸 Instagram : @rinylestari</p>
+      <p>📧 Email : <a href="mailto:rinylestari@gmail.com">rinylestari@gmail.com</a></p>
+      <p>📱 WhatsApp : <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+      <p>📸 Instagram : <a href="https://instagram.com/rinylestari" target="_blank">@rinylestari</a></p>
       <p>📍 Lokasi : Jakarta, Indonesia</p>
-
     </div>
-
   </section>
+
+  <!-- Premium Photo Viewer Modal -->
+  <div id="photoModal" class="modal" onclick="closePhotoModal()">
+    <span class="close-modal" onclick="closePhotoModal()">&times;</span>
+    <img class="modal-content" id="modalImg" src="WhatsApp Image 2026-06-16 at 12.14.53.jpeg" alt="Riny Lestari Full Portrait" onclick="event.stopPropagation();" />
+  </div>
 
   <footer>
     © 2026 Riny Lestari — Feminine Aesthetic Portfolio Website
   </footer>
+
+  <script>
+    // Menambahkan efek visual bayangan halus pada navbar saat melakukan scroll halaman
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Fungsi Interaktif Modal: Membuka foto profil secara penuh / fullscreen zoom
+    function openPhotoModal() {
+      const modal = document.getElementById('photoModal');
+      modal.style.display = 'flex';
+      // Memberikan jeda kecil agar transisi transparansi (CSS opacity) berjalan mulus
+      setTimeout(() => {
+        modal.classList.add('show');
+      }, 10);
+    }
+
+    // Fungsi Interaktif Modal: Menutup tampilan penuh foto profil
+    function closePhotoModal() {
+      const modal = document.getElementById('photoModal');
+      modal.classList.remove('show');
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+    }
+
+    // Menutup modal otomatis apabila tombol 'ESC' ditekan
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closePhotoModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
